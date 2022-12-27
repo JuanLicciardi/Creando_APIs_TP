@@ -20,6 +20,8 @@ const moviesController = {
                 res.render('moviesList.ejs', {movies})
             })
     },
+
+    
     'detail': (req, res) => {
         db.Movie.findByPk(req.params.id,
             {

@@ -9,6 +9,11 @@ const indexRouter = require('./routes/index');
 const moviesRoutes = require('./routes/moviesRoutes');
 const genresRoutes = require('./routes/genresRoutes');
 
+const moviesRoutesApi = require('./routes/api/movies');
+const genresRoutesApi = require('./routes/api/genres');
+const actorsRoutesApi = require('./routes/api/actors')
+
+
 //Aquí pueden colocar las rutas de las APIs
 
 
@@ -27,6 +32,10 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use(moviesRoutes);
 app.use(genresRoutes);
+
+app.use('/api/movies', moviesRoutesApi);
+app.use('/api/genres', genresRoutesApi);
+app.use('/api/actors',actorsRoutesApi);
 
 
 //Activando el servidor desde express

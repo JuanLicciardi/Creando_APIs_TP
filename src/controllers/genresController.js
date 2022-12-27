@@ -4,6 +4,7 @@ const sequelize = db.sequelize;
 
 const genresController = {
     'list': (req, res) => {
+        return res.send('estoy llegando')
         db.Genre.findAll()
             .then(genres => {
                 res.render('genresList.ejs', {genres})
