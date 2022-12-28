@@ -1,20 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const actorsAPIController = require('../../controllers/api/actorsAPIController');
+const {list, detail, actorMovies, create, update, destroy} = require('../../controllers/api/actorsAPIController');
 
-//Rutas
-//Listado de todos los actores
-router.get('/', actorsAPIController.list);
-//Detalle del actor
-router.get('/:id', actorsAPIController.detail);
-//En que peliculas trabajo el actor con id tal
-router.get('/:id/movies', actorsAPIController.actorMovies);
+// Acceso por /api/actors
 
-//Agregar un actor
-router.post('/create', actorsAPIController.create);
-//Modificar un actor
-router.put('/update/:id', actorsAPIController.update);
-//Eliminar un actor
-router.delete('/delete/:id', actorsAPIController.destroy);
+router
+    .get('/',list)
+    .get('/:id',detail)
+    .get('/:id/movies',actorMovies)
+    .post('/create',create)
+    .put('/update/:id',update)
+    .delete('/delete/:id',destroy)
 
 module.exports = router;

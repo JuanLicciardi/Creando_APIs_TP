@@ -51,8 +51,7 @@ const actorsAPIController = {
             });
     },
     create: (req,res) => {
-        Actors
-        .create(
+        db.Actor.create(
             {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -87,7 +86,7 @@ const actorsAPIController = {
     },
     update: (req,res) => {
         let actorId = req.params.id;
-        Actors.update(
+        db.Actor.update(
             {
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -124,8 +123,7 @@ const actorsAPIController = {
     },
     destroy: (req,res) => {
         let actorId = req.params.id;
-        Actors
-        .destroy({where: {id: actorId}, force: true}) // force: true es para asegurar que se ejecute la acción
+        db.Actor.destroy({where: {id: actorId}, force: true}) 
         .then(confirm => {
             let respuesta;
             if(confirm){

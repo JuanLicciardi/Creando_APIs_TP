@@ -4,9 +4,10 @@ const {list, detail, create, destroy} = require('../../controllers/api/moviesAPI
 
 // Accede por /api/movies
 
-router.get('/', list);
-router.get('/:id', detail);
-router.post('/create', create);
-router.delete('/delete/:id', destroy);
+router
+    .get('/', list)
+    .get('/:id', detail)
+    .post('/create', create)
+    .delete('/delete/:id', destroy)
 
 module.exports = router;

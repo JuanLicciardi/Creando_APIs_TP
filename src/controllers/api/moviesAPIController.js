@@ -42,8 +42,8 @@ const moviesAPIController = {
     },
 
     create: (req,res) => {
-        res.json("respuesta")
-        db.Movies.create(
+        
+        db.Movie.create(
             {
                 title: req.body.title,
                 rating: req.body.rating,
@@ -54,6 +54,7 @@ const moviesAPIController = {
             }
         ).then(confirm => {
             let respuesta;
+            console.log("--------------------------//////////-----------------",confirm)
             if(confirm){
                 respuesta ={
                     meta: {
@@ -80,7 +81,7 @@ const moviesAPIController = {
     
     destroy: (req,res) => {
         let movieId = req.params.id;
-        db.Movies
+        db.Movie
         .destroy({where: {id: movieId}, force: true}) 
         .then(confirm => {
             let respuesta;

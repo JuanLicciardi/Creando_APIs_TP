@@ -67,6 +67,7 @@ const moviesController = {
             return res.render(path.resolve(__dirname, '..', 'views',  'moviesAdd'), {allGenres,allActors})})
         .catch(error => res.send(error))
     },
+
     create: function (req,res) {
         Movies
         .create(
@@ -83,6 +84,8 @@ const moviesController = {
             return res.redirect('/movies')})            
         .catch(error => res.send(error))
     },
+
+    
     edit: function(req,res) {
         let movieId = req.params.id;
         let promMovies = Movies.findByPk(movieId,{include: ['genre','actors']});
